@@ -1,8 +1,7 @@
 import { Server } from "socket.io";
-import { createServer } from "http";
 
-const httpServer = createServer();;
-const server = new Server(httpServer, {
+const server = new Server(8000, {
+    //@ts-ignore
     cors: {
       origin: "*"
     }
@@ -30,5 +29,3 @@ setInterval(() => {
         sequenceNumberByClient.set(client, sequenceNumber + 1);
     }
 }, 1000);
-
-httpServer.listen(8000, () => console.log("running"))
